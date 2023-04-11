@@ -9,7 +9,7 @@ export function Hero(props) {
 	return (
 		<div className={s.hero}>
 			<div className={s.infoBlock}>
-				<UserInfo userInfo={props.userInfo} />
+				<UserInfo images={props.images}  userInfo={props.userInfo} />
 			</div>
 			<div className={s.sliderBlock}>
 				{/* <HeroSlider /> */}

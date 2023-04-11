@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import uuid from "react-uuid";
 import { Routes, Route } from "react-router-dom";
 import { Main } from "./components/Main/Main";
 import { Artwork } from "./components/Artwork/Artwork";
@@ -6,7 +7,7 @@ import { Creator } from "./components/Creator/Creator";
 import { Profile } from "./components/Profile/Profile";
 import { Search } from "./components/Search/Search";
 import './App.css';
-// Main Assets
+//Assets
 import itemPic1 from './assets/images/itemMain_1.jpg';
 import itemPic2 from './assets/images/itemMain_2.jpg';
 import itemPic3 from './assets/images/itemMain_3.jpg';
@@ -22,9 +23,22 @@ import photo4 from './assets/images/photo_4.jpg';
 import photo5 from './assets/images/photo_5.jpg';
 import iconSold2 from './assets/icons/sold.svg';
 import iconSold1 from './assets/icons/sold2.svg';
+import selectIcon from './assets/icons/selectArrow.svg';
+//Header Assets
+import logo from './assets/icons/logo.svg';
+import searchIcon from './assets/icons/search.svg';
+//Main Hero Assets
+import optionIcon from './assets/icons/optionBtn.svg';
+import shareIcon from './assets/icons/shareBtn.svg';
+import otherIcon from './assets/icons/otherBtn.svg';
+//Artwork assets
+import artworkHero from './assets/images/artwork-hero.jpg';
+import photoArtwork from './assets/images/photo_artwork.jpg';
 
 export function App(props) {
   let [images, setImages] = useState({
+    logo: logo,
+    searchIcon: searchIcon,
     itemPic1: itemPic1,
     itemPic2: itemPic2,
     itemPic3: itemPic3,
@@ -40,13 +54,134 @@ export function App(props) {
     photo5: photo5,
     icon1: iconSold1,
     icon2: iconSold2,
-  })
+    optionIcon: optionIcon,
+    shareIcon: shareIcon,
+    otherIcon: otherIcon,
+    selectIcon: selectIcon,
+    artworkHero: artworkHero,
+    photoArtwork: photoArtwork
+  });
+
+  let [userInfo, setUserInfo] = useState({
+    name: 'User Name',
+    nickname: '@username',
+    photo: images.photo1,
+    copy: '2 of 10',
+    title: 'WFH - art name',
+    description: `The iconic meme that became a viral Internet sensation and an indispensable part of the gachimuchi music genre. This was taken when I was very young and in my full "performance" attire. That part of me now "lives" on platforms like Twitch, YouTube, VK (ВКонта́кте), and Bilibili (B 站).`,
+    description2: `The iconic meme that became a viral Internet sensation and an indispensable part of the gachimuchi music genre. This was taken when I was very young and in my full "performance" attire. That part of me now "lives" on platforms like Twitch, YouTube, VK (ВКонта́кте), and Bilibili (B 站). The iconic meme that became a viral Internet sensation and an indispensable part of the gachimuchi music genre. This was taken when I was very young and in my full "performance" attire. That part of me now "lives" on platforms like Twitch, YouTube, VK (ВКонта́кте), and Bilibili (B 站).`
+  });
+  let [userCardInfo, setUserCardInfo] = useState([{
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo1
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo2
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo3
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo4
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo5
+  },
+  ]);
+
+  let [bidInfo, setBidInfo] = useState({
+    currentBid: '1,5M',
+    valueBid: '(1308.54$)',
+    icon: iconSold2,
+    time: {
+      h: '1h',
+      m: '28m',
+      s: '32s'
+    }
+  });
+
+  let [activity, setActivity] = useState([
+    {
+      id: uuid(),
+      image: images.photoArtwork,
+      title: 'Bid placed by 0x6FC0...14A4',
+      date: 'May 19, 2021 at 2:27pm',
+      bidInfo: bidInfo,
+    },
+    {
+      id: uuid(),
+      image: images.photoArtwork,
+      title: 'Bid placed by 0x6FC0...14A4',
+      date: 'May 19, 2021 at 2:27pm',
+      bidInfo: bidInfo,
+    },
+    {
+      id: uuid(),
+      image: images.photoArtwork,
+      title: 'Bid placed by 0x6FC0...14A4',
+      date: 'May 19, 2021 at 2:27pm',
+      bidInfo: bidInfo,
+    },
+    {
+      id: uuid(),
+      image: images.photoArtwork,
+      title: 'Bid placed by 0x6FC0...14A4',
+      date: 'May 19, 2021 at 2:27pm',
+      bidInfo: bidInfo,
+    },
+    {
+      id: uuid(),
+      image: images.photoArtwork,
+      title: 'Bid placed by 0x6FC0...14A4',
+      date: 'May 19, 2021 at 2:27pm',
+      bidInfo: bidInfo,
+    },
+    {
+      id: uuid(),
+      image: images.photoArtwork,
+      title: 'Bid placed by 0x6FC0...14A4',
+      date: 'May 19, 2021 at 2:27pm',
+      bidInfo: bidInfo,
+    }
+  ])
 
   return (
     <div className="wrapper">
       <Routes>
-        <Route path="/" element={<Main images={images} />} />
-        <Route path="/artwork" element={<Artwork images={images} />} />
+        <Route path="/" element={
+          <Main
+            images={images}
+            userInfo={userInfo}
+            userCardInfo={userCardInfo}
+          />}
+        />
+        <Route path="/artwork" element={
+          <Artwork
+            images={images}
+            userInfo={userInfo}
+            bidInfo={bidInfo}
+            activity={activity}
+          />}
+        />
         <Route path="/creator" element={<Creator />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />

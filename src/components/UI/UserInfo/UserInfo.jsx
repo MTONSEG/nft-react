@@ -1,33 +1,27 @@
 import React from "react";
 import s from './UserInfo.module.css';
-import avatarImg from '../../../assets/images/avatar.jpg';
-import soldIcon from '../../../assets/icons/sold.svg';
-import optionIcon from '../../../assets/icons/optionBtn.svg';
-import shareIcon from '../../../assets/icons/shareBtn.svg';
-import otherIcon from '../../../assets/icons/otherBtn.svg';
 import { BigBtn } from "../Buttons/UserButtons/BigBtn/BigBtn";
 import { SmallBtn } from "../Buttons/UserButtons/SmallBtn/SmallBtn";
 import { UserAvatarName } from "./UserAvatarName/UserAvatarName";
+import { UserInfoDescription } from "./UserInfoDescription/UserInfoDescription";
+import { UserInfoTitle } from "./UserInfoTitle/UserInfoTitle";
 
 
 export function UserInfo(props) {
+	let images = props.images;
 
 	return (
 		<div className={s.wrap}>
-			<UserAvatarName src={avatarImg} name="User Name" nick="@username" />
+			<UserAvatarName src={images.photo1} name={props.userInfo.name} nick={props.userInfo.nickname} />
 
-			<h1 className={s.title}>
-				{props.userInfo.title}
-			</h1>
+			<UserInfoTitle title={props.userInfo.title} />
 
-			<p className={s.description}>
-				<span>Description: </span>
-				{props.userInfo.description}
-			</p>
+			<UserInfoDescription description={props.userInfo.description} />
+
 			<div className={s.userFooter}>
 				<div className={s.soldWrap}>
 					<p className={s.soldText}>Sold for:</p>
-					<img src={soldIcon} alt="sold" className={s.soldIcon} />
+					<img src={images.icon2} alt="sold" className={s.soldIcon} />
 					<p className={s.amountSold}>1,5M</p>
 				</div>
 
@@ -35,9 +29,9 @@ export function UserInfo(props) {
 					<div className={s.bigBtn}>
 						<BigBtn title="View" />
 					</div>
-					<SmallBtn icon={optionIcon} alt="Op" />
-					<SmallBtn icon={shareIcon} />
-					<SmallBtn icon={otherIcon} />
+					<SmallBtn icon={images.optionIcon} alt="Op" />
+					<SmallBtn icon={images.shareIcon} />
+					<SmallBtn icon={images.otherIcon} />
 				</div>
 			</div>
 		</div>

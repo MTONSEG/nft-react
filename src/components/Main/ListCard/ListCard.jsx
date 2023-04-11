@@ -17,8 +17,8 @@ export function ListCard(props) {
 	return (
 		<main className={s.main}>
 			<div className={s.selects}>
-				<Select title="Recently added" />
-				<Select title="Auctions" />
+				<Select title="Recently added" icon={props.images.selectIcon} />
+				<Select title="Auctions" icon={props.images.selectIcon} />
 			</div>
 
 			<ul className={s.list}>
