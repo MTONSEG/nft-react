@@ -9,6 +9,7 @@ export function ListUserCard(props) {
 		nickname={user.nickname}
 		date={user.date}
 		photo={user.photo}
+		key={user.id}
 	/>)
 
 	return (

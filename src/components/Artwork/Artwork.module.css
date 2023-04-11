@@ -9,9 +9,19 @@
 	aspect-ratio: 659/269;
 }
 
-.main {
+.main, 
+.activityList,
+.buttons {
 	display: flex;
+}
+
+.main {
 	gap: 24px;
+}
+
+.user, 
+.activity {
+	width: 100%;
 }
 
 .user {
@@ -30,6 +40,26 @@
 }
 
 .buttons {
-	display: flex;
 	gap: 8px;
+}
+.activityTitle,
+.listCardTitle{
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
+}
+
+.activityTitle {
+	margin: 0 0 16px;
+}
+
+.activityList {
+	flex-direction: column;
+	width: 100%;
+	gap: 8px;
+	align-items: flex-start;
+}
+
+.listCardTitle{
+	margin: 99px 0 24px;
 }

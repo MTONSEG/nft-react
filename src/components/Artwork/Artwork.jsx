@@ -7,13 +7,19 @@ import { UserAvatarName } from "../UI/UserInfo/UserAvatarName/UserAvatarName";
 import { UserInfoDescription } from "../UI/UserInfo/UserInfoDescription/UserInfoDescription";
 import { UserInfoTitle } from "../UI/UserInfo/UserInfoTitle/UserInfoTitle";
 import { SmallBtn } from "../UI/Buttons/UserButtons/SmallBtn/SmallBtn";
+import { ActivityItem } from "./ActivityItem/ActivityItem";
 
 export function Artwork(props) {
 	let images = props.images;
-
-	// let activities = props.activity.map(item => );
-
-	// console.log(activities);
+	let activity = props.activity.map(elem => <ActivityItem
+		image={elem.image}
+		icon={images.icon2}
+		iconBtn={images.optionIcon}
+		title={elem.title}
+		date={elem.date}
+		bid={elem.bidInfo}
+		key={elem.id}
+	/>);
 
 	return (
 		<div className="container">
@@ -35,27 +41,30 @@ export function Artwork(props) {
 					<UserInfoTitle title={props.userInfo.title} />
 
 					<p className={s.copy}>
-						Copy: <span>{ props.userInfo.copy}</span>
+						Copy: <span>{props.userInfo.copy}</span>
 					</p>
 
 					<UserInfoDescription description={props.userInfo.description2} />
 
 					<div className={s.buttons}>
 						<SmallBtn icon={images.optionIcon} alt='Options' />
-						<SmallBtn icon={ images.shareIcon} alt='Share' />
-						<SmallBtn icon={ images.otherIcon} alt='Other' />
+						<SmallBtn icon={images.shareIcon} alt='Share' />
+						<SmallBtn icon={images.otherIcon} alt='Other' />
 					</div>
 				</div>
+
 				<div className={s.activity}>
 					<h2 className={s.activityTitle}>Activity</h2>
 
 					<ul className={s.activityList}>
-
+						{activity}
 					</ul>
 				</div>
 			</div>
 
-			<ListCard images={props.images} />
+
+			<h2 className={s.listCardTitle}>Feature works</h2>
+			<ListCard images={props.images} cardsList={props.cardsList} />
 		</div>
 	);
 }

@@ -62,6 +62,97 @@ export function App(props) {
     photoArtwork: photoArtwork
   });
 
+  let [cardsList, setListCard] = useState([
+    {
+      id: uuid(),
+      name: 'User Name',
+      nickname: '@username',
+      title: 'WFH - art name',
+      sold: '1,5M',
+      time: '05h 02m 41s',
+      image: images.itemPic1,
+      photo: images.photo1,
+      icon: images.icon2
+    },
+    {
+      id: uuid(),
+      name: 'User Name',
+      nickname: '@username',
+      title: 'WFH - art name',
+      sold: '1,5M',
+      time: '05h 02m 41s',
+      image: images.itemPic2,
+      photo: images.photo2,
+      icon: images.icon1
+    },
+    {
+      id: uuid(),
+      name: 'User Name',
+      nickname: '@username',
+      title: 'WFH - art name',
+      sold: '1,5M',
+      time: '05h 02m 41s',
+      image: images.itemPic3,
+      photo: images.photo3,
+      icon: images.icon2
+    },
+    {
+      id: uuid(),
+      name: 'User Name',
+      nickname: '@username',
+      title: 'WFH - art name',
+      sold: '1,5M',
+      time: '05h 02m 41s',
+      image: images.itemPic4,
+      photo: images.photo4,
+      icon: images.icon1
+    },
+    {
+      id: uuid(),
+      name: 'User Name',
+      nickname: '@username',
+      title: 'WFH - art name',
+      sold: '1,5M',
+      time: '05h 02m 41s',
+      image: images.itemPic5,
+      photo: images.photo5,
+      icon: images.icon2
+    },
+    {
+      id: uuid(),
+      name: 'User Name',
+      nickname: '@username',
+      title: 'WFH - art name',
+      sold: '1,5M',
+      time: '05h 02m 41s',
+      image: images.itemPic6,
+      photo: images.photo3,
+      icon: images.icon1
+    },
+    {
+      id: uuid(),
+      name: 'User Name',
+      nickname: '@username',
+      title: 'WFH - art name',
+      sold: '1,5M',
+      time: '05h 02m 41s',
+      image: images.itemPic7,
+      photo: images.photo1,
+      icon: images.icon2
+    },
+    {
+      id: uuid(),
+      name: 'User Name',
+      nickname: '@username',
+      title: 'WFH - art name',
+      sold: '1,5M',
+      time: '05h 02m 41s',
+      image: images.itemPic8,
+      photo: images.photo4,
+      icon: images.icon1
+    }
+  ])
+
   let [userInfo, setUserInfo] = useState({
     name: 'User Name',
     nickname: '@username',
@@ -162,7 +253,8 @@ export function App(props) {
       date: 'May 19, 2021 at 2:27pm',
       bidInfo: bidInfo,
     }
-  ])
+  ]);
+
 
   return (
     <div className="wrapper">
@@ -172,6 +264,7 @@ export function App(props) {
             images={images}
             userInfo={userInfo}
             userCardInfo={userCardInfo}
+            cardsList={cardsList}
           />}
         />
         <Route path="/artwork" element={
@@ -180,6 +273,7 @@ export function App(props) {
             userInfo={userInfo}
             bidInfo={bidInfo}
             activity={activity}
+            cardsList={cardsList}
           />}
         />
         <Route path="/creator" element={<Creator />} />

@@ -7,3 +7,9 @@
 .footer {
 	padding: 0 0 80px;
 }
+
+.selects {
+	display: flex;
+	gap: 9px;
+	margin-bottom: 24px;
+}
