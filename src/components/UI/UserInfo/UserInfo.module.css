@@ -1,0 +1,57 @@
+
+.title {
+	font-size: 32px;
+	line-height: 38px;
+	margin: 0 0 12px 0;
+}
+
+.description {
+	line-height: 18px;
+	font-weight: 500;
+	margin: 0 0 14px 0;
+}
+
+.description span {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.userFooter {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.soldWrap {
+	display: flex;
+}
+
+.amountSold,
+.soldText {
+	font-weight: 600;
+}
+
+.soldText {
+	color: rgba(255, 255, 255, 0.5);
+	line-height: 16px;
+	margin: 0 12px 0 0;
+}
+.soldIcon {
+	width: 19px;
+	height: 19px;
+	margin: 0 5px 0 0;
+}
+
+.amountSold{
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.buttons {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.bigBtn {
+	margin: 0 4px 0 0;
+}

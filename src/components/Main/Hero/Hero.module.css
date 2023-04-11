@@ -1,0 +1,24 @@
+.hero{
+	padding: 96px 0 0;
+	display: flex;
+	align-items: flex-end;
+	margin: 0 0 79px;
+}
+
+.infoBlock {
+	width: 100%;
+	max-width: 516px;
+	padding: 0 0 29px 0;
+	margin: 0 14px 0 0;
+	flex-shrink: 0;
+}
+
+
+.sliderBlock {
+	width: 60%;
+}
+
+.sliderPic {
+	width: 100%;
+	display: block;
+}
