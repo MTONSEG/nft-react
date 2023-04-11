@@ -6,7 +6,7 @@
 
 .heroImage {
 	width: 100%;
-	aspect-ratio: 659/269;
+	aspect-ratio: 1318/582;
 }
 
 .main, 
@@ -50,13 +50,13 @@
 }
 
 .activityTitle {
-	margin: 0 0 16px;
+	margin: 5px 0 15px;
 }
 
 .activityList {
 	flex-direction: column;
 	width: 100%;
-	gap: 8px;
+	gap: 6px;
 	align-items: flex-start;
 }
 

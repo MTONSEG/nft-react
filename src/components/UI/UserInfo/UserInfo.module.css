@@ -32,9 +32,9 @@
 .buttons {
 	display: flex;
 	align-items: center;
-	gap: 6px;
+	gap: 8px;
 }
 
 .bigBtn {
-	margin: 0 4px 0 0;
+	margin: 0 3px 0 0;
 }
