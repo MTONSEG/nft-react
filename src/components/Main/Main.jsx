@@ -4,6 +4,7 @@ import s from './Main.module.css';
 import { Header } from "../UI/Header/Header";
 import { Hero } from "./Hero/Hero";
 import { ListCard } from "./ListCard/ListCard";
+import { ListUserCard } from "./ListUserCard/ListUserCard";
 
 import itemPic1 from '../../assets/images/itemMain_1.jpg';
 import itemPic2 from '../../assets/images/itemMain_2.jpg';
@@ -20,7 +21,6 @@ import photo4 from '../../assets/images/photo_4.jpg';
 import photo5 from '../../assets/images/photo_5.jpg';
 import iconSold2 from '../../assets/icons/sold.svg';
 import iconSold1 from '../../assets/icons/sold2.svg';
-import { ListUserCard } from "./ListUserCard/ListUserCard";
 
 export function Main(props) {
 	let [userInfo, setUserInfo] = useState({

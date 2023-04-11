@@ -5,6 +5,13 @@
 	align-items: center;
 	text-align: center;
 	padding: 24px 10px;
+	transition: all .2s;
+	cursor: pointer;
+}
+
+.wrap:hover {
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+	text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .photo {
@@ -27,7 +34,6 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
-	text-fill-color: transparent;
 	margin-bottom: 8px;
 	font-weight: 500;
 }
