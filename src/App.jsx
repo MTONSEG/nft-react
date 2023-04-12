@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import uuid from "react-uuid";
 import { Routes, Route } from "react-router-dom";
+import uuid from "react-uuid";
+import { Search } from "./components/Search/Search";
 import { Main } from "./components/Main/Main";
 import { Artwork } from "./components/Artwork/Artwork";
 import { Creator } from "./components/Creator/Creator";
 import { Profile } from "./components/Profile/Profile";
-import { Search } from "./components/Search/Search";
 import './App.css';
 //Assets
 import itemPic1 from './assets/images/itemMain_1.jpg';
@@ -34,6 +34,7 @@ import otherIcon from './assets/icons/otherBtn.svg';
 //Artwork assets
 import artworkHero from './assets/images/artwork-hero.jpg';
 import photoArtwork from './assets/images/photo_artwork.jpg';
+import { Header } from "./components/UI/Header/Header";
 
 export function App(props) {
   let [images, setImages] = useState({
@@ -258,6 +259,7 @@ export function App(props) {
 
   return (
     <div className="wrapper">
+      <Header logo={images.logo} searchIcon={images.searchIcon} />
       <Routes>
         <Route path="/" element={
           <Main

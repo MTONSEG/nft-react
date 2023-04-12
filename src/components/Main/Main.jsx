@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import s from './Main.module.css';
-import { Header } from "../UI/Header/Header";
 import { Hero } from "./Hero/Hero";
 import { Select } from "../UI/Select/Select";
 import { ListCard } from "./ListCard/ListCard";
@@ -10,7 +9,6 @@ export function Main(props) {
 
 	return (
 		<div className="container">
-			<Header logo={props.images.logo} searchIcon={props.images.searchIcon} />
 			<Hero
 				images={props.images}
 				userInfo={props.userInfo}

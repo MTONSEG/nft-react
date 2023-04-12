@@ -1,7 +1,6 @@
 import React from "react";
 import s from './Artwork.module.css';
 import { ListCard } from "../Main/ListCard/ListCard";
-import { Header } from "../UI/Header/Header";
 import { PlaceBid } from "./PlaceBid/PlaceBid";
 import { UserAvatarName } from "../UI/UserInfo/UserAvatarName/UserAvatarName";
 import { UserInfoDescription } from "../UI/UserInfo/UserInfoDescription/UserInfoDescription";
@@ -23,8 +22,6 @@ export function Artwork(props) {
 
 	return (
 		<div className="container">
-			<Header logo={props.images.logo} searchIcon={props.images.searchIcon} />
-
 			<div className={s.hero}>
 				<img className={s.heroImage}
 					src={props.images.artworkHero}
@@ -61,7 +58,6 @@ export function Artwork(props) {
 					</ul>
 				</div>
 			</div>
-
 
 			<h2 className={s.listCardTitle}>Feature works</h2>
 			<ListCard images={props.images} cardsList={props.cardsList} />
