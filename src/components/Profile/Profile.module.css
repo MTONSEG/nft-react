@@ -10,12 +10,16 @@
 .smallBtns,
 .listLinks  {
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
+}
+
+.buttons {
+	margin: 5px 0 0;
 }
 
 .profileTop {
+	align-items: flex-start;
 	justify-content: space-between;
-	margin: 0 0 4px;
 }
 
 .followItem {
@@ -34,8 +38,8 @@
 }
 
 .links {
-	gap: 24px;
-	margin-bottom: 11px;
+	gap: 24.7px;
+	margin-bottom: 8px;
 }
 
 .smallBtns {

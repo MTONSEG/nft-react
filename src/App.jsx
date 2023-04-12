@@ -207,6 +207,62 @@ export function App(props) {
     date: '24 sales on 32ETH',
     photo: images.photo5
   },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo3
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo4
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo2
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo3
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo4
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo5
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo3
+  },
+  {
+    id: uuid(),
+    name: 'UserName',
+    nickname: '@username',
+    date: '24 sales on 32ETH',
+    photo: images.photo4
+  },
   ]);
 
   let [bidInfo, setBidInfo] = useState({
@@ -291,7 +347,6 @@ export function App(props) {
             cardsList={cardsList}
           />}
         />
-        <Route path="/creator" element={<Creator />} />
         <Route path="/profile" element={
           <Profile
             images={images}
@@ -300,7 +355,13 @@ export function App(props) {
             cardsList={cardsList}
           />}
         />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search" element={
+          <Search
+            images={images}
+            userCardInfo={userCardInfo}
+            cardsList={cardsList}
+          />}
+        />
       </Routes>
     </div>
   );

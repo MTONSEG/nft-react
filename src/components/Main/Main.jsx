@@ -3,7 +3,7 @@ import s from './Main.module.css';
 import { Hero } from "./Hero/Hero";
 import { Select } from "../UI/Select/Select";
 import { ListCard } from "./ListCard/ListCard";
-import { ListUserCard } from "./ListUserCard/ListUserCard";
+import { UsersSlider } from "../UI/UsersSlider/UsersSlider";
 
 export function Main(props) {
 
@@ -20,11 +20,10 @@ export function Main(props) {
 					icon={props.images.selectIcon} />
 			</div>
 
-			<ListCard images={props.images} cardsList={props.cardsList} />
+			<ListCard cardsList={props.cardsList} />
 			<h1 className={s.footerTitle}>Featured creators</h1>
-			<div className={s.footer}>
-				<ListUserCard userCards={props.userCardInfo} />
-			</div>
+
+			<UsersSlider userCardInfo={props.userCardInfo} />
 		</div>
 	);
 }

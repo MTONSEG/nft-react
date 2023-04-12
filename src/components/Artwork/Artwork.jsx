@@ -60,7 +60,7 @@ export function Artwork(props) {
 			</div>
 
 			<h2 className={s.listCardTitle}>Feature works</h2>
-			<ListCard images={props.images} cardsList={props.cardsList} />
+			<ListCard cardsList={props.cardsList} />
 		</div>
 	);
 }
