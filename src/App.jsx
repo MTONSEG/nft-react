@@ -35,6 +35,11 @@ import otherIcon from './assets/icons/otherBtn.svg';
 import artworkHero from './assets/images/artwork-hero.jpg';
 import photoArtwork from './assets/images/photo_artwork.jpg';
 import { Header } from "./components/UI/Header/Header";
+// Social icons
+import twitchIcon from './assets/icons/twitch.svg';
+import instagramIcon from './assets/icons/instagram.svg';
+import twitterIcon from './assets/icons/twitter.svg';
+import onlyfansIcon from './assets/icons/onlyfans.svg';
 
 export function App(props) {
   let [images, setImages] = useState({
@@ -60,7 +65,11 @@ export function App(props) {
     otherIcon: otherIcon,
     selectIcon: selectIcon,
     artworkHero: artworkHero,
-    photoArtwork: photoArtwork
+    photoArtwork: photoArtwork,
+    twitchIcon: twitchIcon,
+    instagramIcon: instagramIcon,
+    twitterIcon: twitterIcon,
+    onlyfansIcon: onlyfansIcon
   });
 
   let [cardsList, setListCard] = useState([
@@ -256,6 +265,10 @@ export function App(props) {
     }
   ]);
 
+  let [followers, setFollower] = useState({
+    followers: 234,
+    following: 15
+  })
 
   return (
     <div className="wrapper">
@@ -279,7 +292,14 @@ export function App(props) {
           />}
         />
         <Route path="/creator" element={<Creator />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={
+          <Profile
+            images={images}
+            userInfo={userInfo}
+            followers={followers}
+            cardsList={cardsList}
+          />}
+        />
         <Route path="/search" element={<Search />} />
       </Routes>
     </div>
