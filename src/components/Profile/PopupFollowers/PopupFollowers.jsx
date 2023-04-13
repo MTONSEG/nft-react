@@ -19,7 +19,7 @@ export function PopupFollowers(props) {
 	return (
 		<div className={
 			props.isActive ?
-				"popup" : "popup active"
+				"popup active" : "popup"
 		}
 			onClick={props.onClickHandler}
 		>

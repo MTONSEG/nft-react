@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import s from './UserMenuInfo.module.css';
 
 export function UserMenuInfo(props) {
@@ -49,7 +50,7 @@ export function UserMenuInfo(props) {
 					Address: 0c0xcx1cx606g4516x51g1...
 				</li>
 				<li className={s.menuItem}>
-					My profile
+					<Link className={s.menuLink} to="/profile">My profile</Link>
 				</li>
 				<li className={s.menuItem}>
 					Balance settings

@@ -120,3 +120,7 @@
 .menuItem:first-child:hover {
 	text-shadow:none;
 }
+
+.menuLink {
+	color: #fff;
+}
