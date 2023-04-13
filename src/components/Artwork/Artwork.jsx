@@ -31,12 +31,13 @@ export function Artwork(props) {
 					alt={props.userInfo.title}
 				/>
 
-				<PlaceBid bidInfo={props.bidInfo}
-					popupData={props.popupData.bid}
+				<PlaceBid
+					bidInfo={props.bidInfo}
 					isActive={isArtWorkPopup}
 					changeActive={setArtWorkPopup}
 				/>
-				<PopupBid data={props.popupData.bid}
+				<PopupBid
+					data={props.popupData}
 					isActive={isArtWorkPopup}
 					changeActive={setArtWorkPopup}
 					closeIcon={images.closeIcon}

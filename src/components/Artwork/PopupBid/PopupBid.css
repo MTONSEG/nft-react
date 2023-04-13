@@ -67,6 +67,11 @@
 	font-weight: 700;
 	color: #fff;
 	position: relative;
+	transition: all .2s;
+}
+.input:focus,
+.input:hover {
+	box-shadow: 0 0 5px #8743FF;
 }
 
 .popupBtn {
@@ -80,6 +85,11 @@
 	position: absolute;
 	top: 51px;
 	right: 24px;
+	transition: all .2s;
+}
+
+.close:hover {
+	transform: rotate(90deg) scale(1.4);
 }
 
 .closeIcon {

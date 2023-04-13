@@ -395,6 +395,7 @@ export function App() {
             bidInfo={bidInfo}
             activity={activity}
             cardsList={cardsList}
+            popupData={popupData.bid}
           />}
         />
         <Route path="/profile" element={
