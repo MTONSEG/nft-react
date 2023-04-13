@@ -24,6 +24,7 @@ import iconSold2 from './assets/icons/sold.svg';
 import iconSold1 from './assets/icons/sold2.svg';
 import selectIcon from './assets/icons/selectArrow.svg';
 import menuArrow from './assets/icons/menuArr.svg';
+import closeIcon from './assets/icons/close.svg';
 //Header Assets
 import logo from './assets/icons/logo.svg';
 import searchIcon from './assets/icons/search.svg';
@@ -66,6 +67,7 @@ export function App() {
     otherIcon: otherIcon,
     selectIcon: selectIcon,
     menuArrow: menuArrow,
+    closeIcon: closeIcon,
     artworkHero: artworkHero,
     photoArtwork: photoArtwork,
     twitchIcon: twitchIcon,
@@ -329,6 +331,35 @@ export function App() {
     following: 15
   })
 
+  let [popupData, setPopupData] = useState({
+    bid: {
+      title: 'Place a bid',
+      titleInput: 'Min.sum',
+      textInput: '(1308.54$)',
+      type: 'number'
+    },
+    changedTime: {
+      title: 'Changing ending time',
+      titleInput: 'Selling will end',
+      textInput: '05h 02m 41s',
+    },
+    creating: {
+      title: 'Creating artwork',
+      step1: {
+        uploadTitle: 'Upload the artwork you will be selling',
+        error: 'Your artwork wasn’t approved. Cause is: Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
+      },
+      step2: {
+        uploadTitle: 'Censor the public version of artwork, if it contains 18+ content',
+      },
+      step3: {
+        inpTitle: 'Artwork name',
+
+      }
+    }
+  });
+
+
   return (
     <div className="wrapper">
       <Header
@@ -351,6 +382,7 @@ export function App() {
             bidInfo={bidInfo}
             activity={activity}
             cardsList={cardsList}
+            popupData={popupData}
           />}
         />
         <Route path="/profile" element={

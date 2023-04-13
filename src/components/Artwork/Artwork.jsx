@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import s from './Artwork.module.css';
 import { ListCard } from "../Main/ListCard/ListCard";
 import { PlaceBid } from "./PlaceBid/PlaceBid";
@@ -7,6 +7,7 @@ import { UserInfoDescription } from "../UI/UserInfo/UserInfoDescription/UserInfo
 import { UserInfoTitle } from "../UI/UserInfo/UserInfoTitle/UserInfoTitle";
 import { SmallBtn } from "../UI/Buttons/UserButtons/SmallBtn/SmallBtn";
 import { ActivityItem } from "./ActivityItem/ActivityItem";
+import { PopupBid } from "./PopupBid/PopupBid";
 
 export function Artwork(props) {
 	let images = props.images;
@@ -20,6 +21,8 @@ export function Artwork(props) {
 		key={elem.id}
 	/>);
 
+	let [isArtWorkPopup, setArtWorkPopup] = useState(false);
+
 	return (
 		<div className="container">
 			<div className={s.hero}>
@@ -28,7 +31,16 @@ export function Artwork(props) {
 					alt={props.userInfo.title}
 				/>
 
-				<PlaceBid bidInfo={props.bidInfo} />
+				<PlaceBid bidInfo={props.bidInfo}
+					popupData={props.popupData.bid}
+					isActive={isArtWorkPopup}
+					changeActive={setArtWorkPopup}
+				/>
+				<PopupBid data={props.popupData.bid}
+					isActive={isArtWorkPopup}
+					changeActive={setArtWorkPopup}
+					closeIcon={images.closeIcon}
+				/>
 			</div>
 
 			<div className={s.main}>

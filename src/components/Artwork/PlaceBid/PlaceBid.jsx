@@ -1,8 +1,14 @@
 import React from "react";
 import { BigBtn } from "../../UI/Buttons/UserButtons/BigBtn/BigBtn";
+import { Popup, PopUp } from "../PopupBid/PopupBid";
 import s from './PlaceBid.module.css';
 
 export function PlaceBid(props) {
+
+	const onClickHandler = () => {
+		props.changeActive(!props.isActive);
+	}
+
 	return (
 		<ul className={s.list}>
 			<li className={s.item}>
@@ -26,7 +32,9 @@ export function PlaceBid(props) {
 				</div>
 			</li>
 			<li className={s.item}>
-				<BigBtn title="Place a bid" />
+				<BigBtn title="Place a bid"
+					onClickHandler={onClickHandler}
+				/>
 			</li>
 		</ul>
 	);
