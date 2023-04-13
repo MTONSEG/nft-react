@@ -10,4 +10,5 @@
 .container {
 	max-width: 1366px;
 	padding: 0 24px;
+	overflow: hidden;
 }

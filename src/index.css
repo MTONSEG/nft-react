@@ -5,6 +5,7 @@
 	--baseFontColor: #fff;
 	--baseFontSize: 14px;
 	--baseFont: 'Raleway';
+	--white05Color: rgba(255, 255, 255, 0.5);
 }
 
 * {

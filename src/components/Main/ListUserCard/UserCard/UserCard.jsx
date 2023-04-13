@@ -2,7 +2,6 @@ import React from "react";
 import s from './UserCard.module.css';
 
 export function UserCard(props) {
-	console.log(props.userCards)
 	return (
 		<li className={s.wrap}>
 			<img className={s.photo} src={props.photo} alt={props.name} />

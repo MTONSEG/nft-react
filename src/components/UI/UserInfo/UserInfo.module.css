@@ -1,20 +1,3 @@
-
-.title {
-	font-size: 32px;
-	line-height: 38px;
-	margin: 0 0 12px 0;
-}
-
-.description {
-	line-height: 18px;
-	font-weight: 500;
-	margin: 0 0 14px 0;
-}
-
-.description span {
-	color: rgba(255, 255, 255, 0.5);
-}
-
 .userFooter {
 	display: flex;
 	align-items: center;
@@ -49,9 +32,9 @@
 .buttons {
 	display: flex;
 	align-items: center;
-	gap: 6px;
+	gap: 8px;
 }
 
 .bigBtn {
-	margin: 0 4px 0 0;
+	margin: 0 3px 0 0;
 }
