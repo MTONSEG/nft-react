@@ -6,7 +6,6 @@
 
 .user-slider .swiper-pagination-progressbar {
 	background: transparent;
-
 }
 
 .user-slider .swiper-horizontal>.swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal {
@@ -19,14 +18,4 @@
 
 .user-slider .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
 	background: rgba(255, 255, 255, 0.5);
-}
-
-.test {
-	height: 5px;
-
-}
-
-.swiper-pagination-progressbar-fill {
-	border-radius: 99px;
-	display: inline-block;
 }

@@ -4,7 +4,6 @@ import uuid from "react-uuid";
 import { Search } from "./components/Search/Search";
 import { Main } from "./components/Main/Main";
 import { Artwork } from "./components/Artwork/Artwork";
-import { Creator } from "./components/Creator/Creator";
 import { Profile } from "./components/Profile/Profile";
 import './App.css';
 //Assets
@@ -24,6 +23,7 @@ import photo5 from './assets/images/photo_5.jpg';
 import iconSold2 from './assets/icons/sold.svg';
 import iconSold1 from './assets/icons/sold2.svg';
 import selectIcon from './assets/icons/selectArrow.svg';
+import menuArrow from './assets/icons/menuArr.svg';
 //Header Assets
 import logo from './assets/icons/logo.svg';
 import searchIcon from './assets/icons/search.svg';
@@ -41,7 +41,8 @@ import instagramIcon from './assets/icons/instagram.svg';
 import twitterIcon from './assets/icons/twitter.svg';
 import onlyfansIcon from './assets/icons/onlyfans.svg';
 
-export function App(props) {
+export function App() {
+
   let [images, setImages] = useState({
     logo: logo,
     searchIcon: searchIcon,
@@ -64,6 +65,7 @@ export function App(props) {
     shareIcon: shareIcon,
     otherIcon: otherIcon,
     selectIcon: selectIcon,
+    menuArrow: menuArrow,
     artworkHero: artworkHero,
     photoArtwork: photoArtwork,
     twitchIcon: twitchIcon,
@@ -169,6 +171,7 @@ export function App(props) {
     photo: images.photo1,
     copy: '2 of 10',
     title: 'WFH - art name',
+    balance: '1,5M',
     description: `The iconic meme that became a viral Internet sensation and an indispensable part of the gachimuchi music genre. This was taken when I was very young and in my full "performance" attire. That part of me now "lives" on platforms like Twitch, YouTube, VK (ВКонта́кте), and Bilibili (B 站).`,
     description2: `The iconic meme that became a viral Internet sensation and an indispensable part of the gachimuchi music genre. This was taken when I was very young and in my full "performance" attire. That part of me now "lives" on platforms like Twitch, YouTube, VK (ВКонта́кте), and Bilibili (B 站). The iconic meme that became a viral Internet sensation and an indispensable part of the gachimuchi music genre. This was taken when I was very young and in my full "performance" attire. That part of me now "lives" on platforms like Twitch, YouTube, VK (ВКонта́кте), and Bilibili (B 站).`
   });
@@ -328,7 +331,10 @@ export function App(props) {
 
   return (
     <div className="wrapper">
-      <Header logo={images.logo} searchIcon={images.searchIcon} />
+      <Header
+        images={images}
+        userInfo={userInfo}
+      />
       <Routes>
         <Route path="/" element={
           <Main
