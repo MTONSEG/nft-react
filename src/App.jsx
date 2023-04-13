@@ -182,91 +182,104 @@ export function App() {
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo1
+    photo: images.photo1,
+    follow: true,
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo2
+    photo: images.photo2,
+    follow: true
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo3
+    photo: images.photo3,
+    follow: false
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo4
+    photo: images.photo4,
+    follow: true
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo5
+    photo: images.photo5,
+    follow: true
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo3
+    photo: images.photo3,
+    follow: true
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo4
+    photo: images.photo4,
+    follow: false
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo2
+    photo: images.photo2,
+    follow: true
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo3
+    photo: images.photo3,
+    follow: true
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo4
+    photo: images.photo4,
+    follow: true
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo5
+    photo: images.photo5,
+    follow: false
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo3
+    photo: images.photo3,
+    follow: true
   },
   {
     id: uuid(),
     name: 'UserName',
     nickname: '@username',
     date: '24 sales on 32ETH',
-    photo: images.photo4
+    photo: images.photo4,
+    follow: true
   },
   ]);
 
@@ -382,7 +395,6 @@ export function App() {
             bidInfo={bidInfo}
             activity={activity}
             cardsList={cardsList}
-            popupData={popupData}
           />}
         />
         <Route path="/profile" element={
@@ -391,6 +403,9 @@ export function App() {
             userInfo={userInfo}
             followers={followers}
             cardsList={cardsList}
+            popupData={popupData}
+            userCardInfo={userCardInfo}
+            setUserCardInfo={setUserCardInfo}
           />}
         />
         <Route path="/search" element={

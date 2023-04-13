@@ -1,6 +1,6 @@
 import React from "react";
 import { BigBtn } from "../../UI/Buttons/UserButtons/BigBtn/BigBtn";
-import s from './PopupBid.module.css';
+import './PopupBid.css';
 
 export function PopupBid(props) {
 	let data = props.data;
@@ -11,26 +11,25 @@ export function PopupBid(props) {
 
 	return (
 		<div className={props.isActive ?
-			`${s.popup} ${s.active}` : s.popup
+			"popup active" : "popup"
 		}
 			onClick={onClickHandler}
 		>
-			<div className={s.content}
+			<div className="content"
 				onClick={e => { e.stopPropagation() }}
 			>
 				<button
-					className={s.close}
+					className="close"
 					onClick={onClickHandler}
 				>
-					<img className={s.closeIcon} src={props.closeIcon} alt='close' />
-
+					<img className="closeIcon" src={props.closeIcon} alt='close' />
 				</button>
-				<h1 className={s.title}>{data.title}</h1>
-				<p className={s.inputTitle}>{data.titleInput}</p>
+				<h1 className="title">{data.title}</h1>
+				<p className="inputTitle">{data.titleInput}</p>
 
-				<div className={s.inputWrap}>
-					<input className={s.input} type={data.type} />
-					<p className={s.price}>{data.textInput}</p>
+				<div className="inputWrap">
+					<input className="input" type={data.type} />
+					<p className="price">{data.textInput}</p>
 				</div>
 				<BigBtn title="Place"
 					onClickHandler={onClickHandler}

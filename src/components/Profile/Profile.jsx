@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import s from './Profile.module.css';
 import { UserAvatarName } from "../UI/UserInfo/UserAvatarName/UserAvatarName";
 import { UserInfoDescription } from "../UI/UserInfo/UserInfoDescription/UserInfoDescription";
@@ -6,11 +6,16 @@ import { SocialLink } from "../UI/Buttons/SocialLink/SocialLink";
 import { BigBtn } from "../UI/Buttons/UserButtons/BigBtn/BigBtn";
 import { SmallBtn } from "../UI/Buttons/UserButtons/SmallBtn/SmallBtn";
 import { ListCard } from "../Main/ListCard/ListCard";
+import { PopupFollowers } from "./PopupFollowers/PopupFollowers";
 
 export function Profile(props) {
 	let images = props.images;
 
+	let [showFollowers, setShowFollower] = useState(false);
 
+	const onClickHandler = () => {
+		setShowFollower(!showFollowers);
+	}
 
 	return (
 		<div className="container">
@@ -31,7 +36,7 @@ export function Profile(props) {
 							<span className={s.followTitle}>Following</span>
 						</div>
 
-						<BigBtn title="Follow" />
+						<BigBtn title="Follow" onClickHandler={onClickHandler} />
 
 						<div className={s.smallBtns}>
 							<SmallBtn icon={images.optionIcon} alt="Option" />
@@ -67,6 +72,13 @@ export function Profile(props) {
 				</div>
 				<ListCard images={props.images} cardsList={props.cardsList} />
 			</div>
+
+			<PopupFollowers closeIcon={images.closeIcon}
+				isActive={showFollowers}
+				onClickHandler={onClickHandler}
+				userCardInfo={props.userCardInfo}
+				setUserCardInfo={props.setUserCardInfo}
+			/>
 
 		</div>
 	);
