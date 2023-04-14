@@ -1,0 +1,10 @@
+.inpTitle{
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
+	color: rgba(255, 255, 255, 0.5);
+	margin: 0 0 8px;
+}
+.inpWrap {
+	margin: 0 0 24px;
+}

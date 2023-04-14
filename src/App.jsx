@@ -21,12 +21,16 @@ import photo3 from './assets/images/photo_3.jpg';
 import photo4 from './assets/images/photo_4.jpg';
 import photo5 from './assets/images/photo_5.jpg';
 import photoProfile from './assets/images/profile_photo.jpg';
+import creatingImg from './assets/images/creating_img.jpg';
 import iconSold2 from './assets/icons/sold.svg';
 import iconSold1 from './assets/icons/sold2.svg';
 import selectIcon from './assets/icons/selectArrow.svg';
 import menuArrow from './assets/icons/menuArr.svg';
 import closeIcon from './assets/icons/close.svg';
 import delIcon from './assets/icons/del.svg';
+import picIcon from './assets/icons/pic.svg';
+import stickIcon from './assets/icons/stick.svg';
+import blurIcon from './assets/icons/blur.svg';
 //Header Assets
 import logo from './assets/icons/logo.svg';
 import searchIcon from './assets/icons/search.svg';
@@ -43,6 +47,7 @@ import twitchIcon from './assets/icons/twitch.svg';
 import instagramIcon from './assets/icons/instagram.svg';
 import twitterIcon from './assets/icons/twitter.svg';
 import onlyfansIcon from './assets/icons/onlyfans.svg';
+import { PopupCreatingArtwork } from "./components/Artwork/PopupCreatingArtwork/PopupCreatingArtwork";
 
 export function App() {
 
@@ -62,6 +67,10 @@ export function App() {
     photo3: photo3,
     photo4: photo4,
     photo5: photo5,
+    creatingImg: creatingImg,
+    picIcon: picIcon,
+    stickIcon: stickIcon,
+    blurIcon: blurIcon,
     icon1: iconSold1,
     icon2: iconSold2,
     photoProfile: photoProfile,
@@ -397,18 +406,35 @@ export function App() {
     creating: {
       title: 'Creating artwork',
       step1: {
+        num: 'Step 1 from 3',
         uploadTitle: 'Upload the artwork you will be selling',
+        sizeFile: '1500x500px. JPG, PNG or GIF. 100MB max size.',
+        text: 'Drag and drop an image here, or click to browse',
         error: 'Your artwork wasn’t approved. Cause is: Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
       },
       step2: {
+        num: 'Step 2 from 3',
+        image: images.creatingImg,
+        icons: {
+          pic: images.picIcon,
+          stick: images.stickIcon,
+          blur: images.blurIcon
+        },
         uploadTitle: 'Censor the public version of artwork, if it contains 18+ content',
       },
       step3: {
-        inpTitle: 'Artwork name',
+        num: 'Step 3 from 3',
+        name: 'Artwork name',
+        description: 'Description',
+        type: 'Type',
+        copies: 'Copies',
+        
 
       }
     }
   });
+
+  let [creatingPopup, setCreatingPopup] = useState(false);
 
 
   return (
@@ -416,6 +442,8 @@ export function App() {
       <Header
         images={images}
         userInfo={userInfo}
+        creatingPopup={creatingPopup}
+        setCreatingPopup={setCreatingPopup}
       />
       <Routes>
         <Route path="/" element={
@@ -455,6 +483,13 @@ export function App() {
           />}
         />
       </Routes>
+
+      <PopupCreatingArtwork
+        data={popupData.creating}
+        closeIcon={images.closeIcon}
+        isActive={creatingPopup}
+        setCreatingPopup={setCreatingPopup}
+      />
     </div>
   );
 }

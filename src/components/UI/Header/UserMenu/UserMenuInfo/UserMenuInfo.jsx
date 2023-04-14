@@ -55,7 +55,9 @@ export function UserMenuInfo(props) {
 				<li className={s.menuItem}>
 					Balance settings
 				</li>
-				<li className={s.menuItem}>
+				<li className={s.menuItem}
+					onClick={props.onClickLogOutHandler}
+				>
 					Log out
 				</li>
 			</ul>

@@ -32,10 +32,11 @@
 	background: rgb(77, 77, 77);
 	border-radius: 100px;
 }
-
+.textarea:hover,
 .input:hover {
 	box-shadow: 0 0 5px rgba(136, 67, 255, 0.7);
 }
+.textarea:focus,
 .input:focus {
 	border-color: #8743FF;
 }

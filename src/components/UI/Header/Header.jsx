@@ -3,6 +3,7 @@ import s from './Header.module.css';
 import { InputSearch } from "./InputSearch/InputSearch";
 import { HeaderBtn } from "../Buttons/HeaderBtn/HeaderBtn";
 import { UserMenu } from "./UserMenu/UserMenu";
+import { PopupCreatingArtwork } from "../../Artwork/PopupCreatingArtwork/PopupCreatingArtwork";
 
 
 export function Header(props) {
@@ -10,8 +11,12 @@ export function Header(props) {
 
 	let [isEntered, setEnter] = useState(false);
 
-	let onClickHandler = () => {
+	const onClickHandler = () => {
 		setEnter(!isEntered);
+	}
+
+	const onClickCreatingHandler = () => {
+		props.setCreatingPopup(!props.creatingPopup)
 	}
 
 	return (
@@ -24,6 +29,7 @@ export function Header(props) {
 					<UserMenu images={props.images}
 						userInfo={props.userInfo}
 						onClickHandler={onClickHandler}
+						onClickCreatingHandler={onClickCreatingHandler}
 					/> :
 					<HeaderBtn title="Connect wallet"
 						onClickHandler={onClickHandler}
