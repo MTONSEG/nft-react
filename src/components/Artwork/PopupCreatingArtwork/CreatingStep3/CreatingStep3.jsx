@@ -3,9 +3,10 @@ import s from './CreatingStep3.module.css';
 import { BigBtn } from "../../../UI/Buttons/UserButtons/BigBtn/BigBtn";
 import { TextInput } from "../../../UI/Forms/TextInput/TextInput";
 import { Textarea } from "../../../UI/Forms/Textarea/Textarea";
+import { RadioInput } from "../../../UI/Forms/RadioInput/RadioInput";
 
 export function CreatingStep3(props) {
-	let [isChecked, setIsChecked] = useState(false);
+	let [isChecked, setIsChecked] = useState(true);
 
 	const onClickHandler = () => {
 		props.setCreatingPopup(!props.isActive)
@@ -40,20 +41,17 @@ export function CreatingStep3(props) {
 					<Textarea />
 				</div>
 				<p className={s.inpTitle}>Type</p>
-				<label>
-					lol
-					<input type="radio" name="create" label="Cat"
-						checked={isChecked}
-						onChange={onChangeRadio}
-					/>
-				</label>
-				<label htmlFor="sale">
 
-					hello
-					<input id="sale" type="radio" name="create"
-						checked={!isChecked}
-						onChange={onChangeRadio} />
-				</label>
+				<RadioInput name="creating"
+					text="Auction"
+					checked={isChecked}
+					onChangeCheckHandler={onChangeRadio}
+				/>
+				<RadioInput name="creating"
+					text="Sale"
+					checked={!isChecked}
+					onChangeCheckHandler={onChangeRadio}
+				/>
 				<BigBtn title="Finish creating"
 					onClickHandler={onClickHandler}
 				/>
