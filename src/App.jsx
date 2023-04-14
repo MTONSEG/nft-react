@@ -20,11 +20,13 @@ import photo2 from './assets/images/photo_2.jpg';
 import photo3 from './assets/images/photo_3.jpg';
 import photo4 from './assets/images/photo_4.jpg';
 import photo5 from './assets/images/photo_5.jpg';
+import photoProfile from './assets/images/profile_photo.jpg';
 import iconSold2 from './assets/icons/sold.svg';
 import iconSold1 from './assets/icons/sold2.svg';
 import selectIcon from './assets/icons/selectArrow.svg';
 import menuArrow from './assets/icons/menuArr.svg';
 import closeIcon from './assets/icons/close.svg';
+import delIcon from './assets/icons/del.svg';
 //Header Assets
 import logo from './assets/icons/logo.svg';
 import searchIcon from './assets/icons/search.svg';
@@ -62,12 +64,14 @@ export function App() {
     photo5: photo5,
     icon1: iconSold1,
     icon2: iconSold2,
+    photoProfile: photoProfile,
     optionIcon: optionIcon,
     shareIcon: shareIcon,
     otherIcon: otherIcon,
     selectIcon: selectIcon,
     menuArrow: menuArrow,
     closeIcon: closeIcon,
+    delIcon: delIcon,
     artworkHero: artworkHero,
     photoArtwork: photoArtwork,
     twitchIcon: twitchIcon,
@@ -356,6 +360,40 @@ export function App() {
       titleInput: 'Selling will end',
       textInput: '05h 02m 41s',
     },
+    editingProfile: {
+      title: 'Edit your Profile',
+      name: 'Name',
+      username: 'Username',
+      email: 'Email',
+      textarea: 'BIO',
+      imageTitle: 'Profile image',
+      contacts: {
+        title: 'Contacts',
+        items: [{
+          title: 'Twitch',
+          icon: images.twitchIcon
+        },
+        {
+          title: 'Instagram',
+          icon: images.instagramIcon
+        },
+        {
+          title: 'Twitter',
+          icon: images.twitterIcon
+        },
+        {
+          title: 'Onlyfans',
+          icon: images.onlyfansIcon
+        }]
+      },
+      image: {
+        file: images.photoProfile,
+        filename: 'file.name',
+        size: '5.00 mb',
+        delIcon: images.delIcon,
+      },
+      description: 'Add your email address to receive notifications about your activity on Foundation. This will not be shown on your profile.',
+    },
     creating: {
       title: 'Creating artwork',
       step1: {
@@ -404,7 +442,7 @@ export function App() {
             userInfo={userInfo}
             followers={followers}
             cardsList={cardsList}
-            popupData={popupData}
+            popupData={popupData.editingProfile}
             userCardInfo={userCardInfo}
             setUserCardInfo={setUserCardInfo}
           />}

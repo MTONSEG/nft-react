@@ -24,11 +24,21 @@
 .title {
 	cursor: pointer;
 	transition: all .2s;
+	color: var(--white05Color);
 }
+
+.title.active {
+	color: #fff;
+}
+
 
 .title:hover {
 	text-shadow: 0 0 20px rgba(136, 67, 255, 0.973);
 }
+.title:hover.active {
+	text-shadow: 0 0 0 #fff;
+}
+
 
 .list {
 	max-height: 480px;

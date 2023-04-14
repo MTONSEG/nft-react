@@ -1,0 +1,42 @@
+.input,
+.textarea {	
+	background: #1D2228;
+	border-radius: 8px;
+	display: block;
+	width: 100%;
+	resize: none;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
+	color: #fff;
+	transition: all .2s;
+	box-sizing: border-box;
+	border: 1px solid transparent;
+}
+
+.input {
+	padding: 10px 16px 9px 10px;
+}
+.textarea {
+	max-height: 120px;
+	padding: 10px 16px 9px;
+}
+
+.textarea::-webkit-scrollbar {
+	width: 4px;
+}
+.textarea::-webkit-scrollbar-track {
+	background: transparent;
+}
+.textarea::-webkit-scrollbar-thumb {
+	background: rgb(77, 77, 77);
+	border-radius: 100px;
+}
+
+.input:hover {
+	box-shadow: 0 0 5px rgba(136, 67, 255, 0.7);
+}
+.input:focus {
+	border-color: #8743FF;
+}
+
