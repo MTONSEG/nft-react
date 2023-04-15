@@ -5,13 +5,18 @@
 	display: block;
 	width: 100%;
 	resize: none;
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 19px;
 	color: #fff;
 	transition: all .2s;
 	box-sizing: border-box;
 	border: 1px solid transparent;
+}
+
+.input,
+.textarea,
+.text {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
 }
 
 .input {
@@ -42,47 +47,66 @@
 }
 
 .inpRadio {
-	/* opacity: 0;
+	position: absolute;
+	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
-	width: 0.01px; */
+	width: 0.01px;
 }
 
 .custom {
-	display: block;
+	display: flex;
+	align-items: center;
 	position: relative;
-	padding: 0 0 0 30px;
+	gap: 6px;
+	cursor: pointer;
 }
 
-.custom::before {
-	position: absolute;
-	top: 50%;
-	left: -10px;
-	transform: translateY(-50%);
-	content: '';
+.customRadio,
+.customRadio::before {
+	display: block;
+	border-radius: 100%;
+	transition: all .2s;
+}
+
+.customRadio {
 	width: 20px;
 	height: 20px;
-	display: block;
-	background: transparent;
 	background-image: linear-gradient(90deg, #30363D, #30363D),
 	linear-gradient(270deg, #8743FF 0%, #D8C2FF 100%);
 	background-clip: padding-box, border-box;
 	background-origin: border-box;
 	border: 1px solid transparent;
-	border-radius: 100%;
 	padding: 5px;
+	position: relative;
 }
 
-.custom::after {
+.customRadio::before {
 	content: '';
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%);
-	left: -5px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 1px;
+	height: 1px;
+	background: linear-gradient(270deg, #8743FF 0%, #D8C2FF 100%);
+	opacity: 0;
+	visibility: hidden;
+}
+
+.inpRadio:checked + .customRadio::before {
 	width: 10px;
 	height: 10px;
-	display: block;
-	padding: 5px;
-	border-radius: 100%;
-	background: linear-gradient(270deg, #8743FF 0%, #D8C2FF 100%);
+	opacity: 1;
+	visibility: visible;
 }
+
+.text {
+	color: rgba(255, 255, 255, 0.5);
+	transition: all .2s;
+}
+
+.inpRadio:checked ~ .text {
+	color: #fff;
+}
+

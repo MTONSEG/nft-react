@@ -6,9 +6,9 @@ import s from './PopupCreatingArtwork.module.css';
 import { StepChecker } from "./StepChecker/StepChecker";
 
 export function PopupCreatingArtwork(props) {
-	let [creatingStep1, setCreatingStep1] = useState(false);
+	let [creatingStep1, setCreatingStep1] = useState(true);
 	let [creatingStep2, setCreatingStep2] = useState(false);
-	let [creatingStep3, setCreatingStep3] = useState(true);
+	let [creatingStep3, setCreatingStep3] = useState(false);
 
 	const onClickHandler = () => {
 		props.setCreatingPopup(!props.isActive);
@@ -17,7 +17,7 @@ export function PopupCreatingArtwork(props) {
 	return (
 		<div className={
 			props.isActive ?
-				"popup" : "popup active"
+				"popup active" : "popup"
 		}
 			onClick={onClickHandler}
 		>

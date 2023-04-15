@@ -4,6 +4,8 @@ import { BigBtn } from "../../../UI/Buttons/UserButtons/BigBtn/BigBtn";
 import { TextInput } from "../../../UI/Forms/TextInput/TextInput";
 import { Textarea } from "../../../UI/Forms/Textarea/Textarea";
 import { RadioInput } from "../../../UI/Forms/RadioInput/RadioInput";
+import { Quantity } from "./Quantity/Quantity";
+import { Sum } from "./Sum/Sum";
 
 export function CreatingStep3(props) {
 	let [isChecked, setIsChecked] = useState(true);
@@ -40,18 +42,31 @@ export function CreatingStep3(props) {
 					<p className={s.inpTitle}>Description</p>
 					<Textarea />
 				</div>
-				<p className={s.inpTitle}>Type</p>
+				<p className={s.radioTitle}>Type</p>
+				<div className={s.radioWrap}>
+					<RadioInput name="creating"
+						text="Auction"
+						checked={isChecked}
+						onChangeCheckHandler={onChangeRadio}
+					/>
+					<RadioInput name="creating"
+						text="Sale"
+						checked={!isChecked}
+						onChangeCheckHandler={onChangeRadio}
+					/>
+				</div>
 
-				<RadioInput name="creating"
-					text="Auction"
-					checked={isChecked}
-					onChangeCheckHandler={onChangeRadio}
-				/>
-				<RadioInput name="creating"
-					text="Sale"
-					checked={!isChecked}
-					onChangeCheckHandler={onChangeRadio}
-				/>
+				<div className={s.quantityWrap}>
+					<div className={s.titles}>
+						<h2 className={s.inpTitle}>Copies</h2>
+						<h2 className={s.inpTitle}>Min.sum</h2>
+					</div>
+					<div className={s.inputs}>
+						<Quantity />
+						<Sum/>
+					</div>
+				</div>
+
 				<BigBtn title="Finish creating"
 					onClickHandler={onClickHandler}
 				/>

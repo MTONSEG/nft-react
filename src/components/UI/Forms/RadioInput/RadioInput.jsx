@@ -10,7 +10,8 @@ export function RadioInput(props) {
 				checked={props.checked}
 				onChange={props.onChangeCheckHandler}
 			/>
-			{props.text}
+			<span className={s.customRadio}></span>
+			<p className={s.text}>{props.text}</p>
 		</label>
 	);
 }
