@@ -9,10 +9,15 @@ import { PopupCreatingArtwork } from "../../Artwork/PopupCreatingArtwork/PopupCr
 export function Header(props) {
 	let images = props.images;
 
-	let [isEntered, setEnter] = useState(false);
+
+
+
+	const onConnectClickHandler = () => {
+		props.changeActiveVideo(!props.activeVideo)
+	}
 
 	const onClickHandler = () => {
-		setEnter(!isEntered);
+		props.setEnter(!props.isEntered);
 	}
 
 	const onClickCreatingHandler = () => {
@@ -25,14 +30,14 @@ export function Header(props) {
 
 			<InputSearch src={images.searchIcon} alt="search" placeholder="Search for..." />
 			{
-				isEntered ?
+				props.isEntered ?
 					<UserMenu images={props.images}
 						userInfo={props.userInfo}
 						onClickHandler={onClickHandler}
 						onClickCreatingHandler={onClickCreatingHandler}
 					/> :
 					<HeaderBtn title="Connect wallet"
-						onClickHandler={onClickHandler}
+						onClickHandler={onConnectClickHandler}
 					/>
 			}
 		</header>

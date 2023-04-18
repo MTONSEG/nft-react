@@ -20,6 +20,11 @@ import photo2 from './assets/images/photo_2.jpg';
 import photo3 from './assets/images/photo_3.jpg';
 import photo4 from './assets/images/photo_4.jpg';
 import photo5 from './assets/images/photo_5.jpg';
+import slide1 from './assets/images/slide_img-1.jpg';
+import slide2 from './assets/images/slide_img-2.jpg';
+import slide3 from './assets/images/slide_img-3.jpg';
+import slide4 from './assets/images/slide_img-4.jpg';
+import fox from './assets/images/fox.jpg';
 import photoProfile from './assets/images/profile_photo.jpg';
 import creatingImg from './assets/images/creating_img.jpg';
 import iconSold2 from './assets/icons/sold.svg';
@@ -31,6 +36,7 @@ import delIcon from './assets/icons/del.svg';
 import picIcon from './assets/icons/pic.svg';
 import stickIcon from './assets/icons/stick.svg';
 import blurIcon from './assets/icons/blur.svg';
+import loading from './assets/icons/loading.svg';
 //Header Assets
 import logo from './assets/icons/logo.svg';
 import searchIcon from './assets/icons/search.svg';
@@ -48,6 +54,8 @@ import instagramIcon from './assets/icons/instagram.svg';
 import twitterIcon from './assets/icons/twitter.svg';
 import onlyfansIcon from './assets/icons/onlyfans.svg';
 import { PopupCreatingArtwork } from "./components/Artwork/PopupCreatingArtwork/PopupCreatingArtwork";
+import { PopupVideos } from "./components/UI/Header/UserMenu/PopupVideos/PopupVideos";
+import { PopupConnect } from "./components/UI/Header/UserMenu/PopupConnect/PopupConnect";
 
 export function App() {
 
@@ -67,6 +75,12 @@ export function App() {
     photo3: photo3,
     photo4: photo4,
     photo5: photo5,
+    slide1: slide1,
+    slide2: slide2,
+    slide3: slide3,
+    slide4: slide4,
+    fox: fox,
+    loading: loading,
     creatingImg: creatingImg,
     picIcon: picIcon,
     stickIcon: stickIcon,
@@ -192,7 +206,7 @@ export function App() {
   });
   let [userCardInfo, setUserCardInfo] = useState([{
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo1,
@@ -200,7 +214,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo2,
@@ -208,7 +222,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo3,
@@ -216,7 +230,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo4,
@@ -224,7 +238,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo5,
@@ -232,7 +246,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo3,
@@ -240,7 +254,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo4,
@@ -248,7 +262,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo2,
@@ -256,42 +270,10 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo3,
-    follow: true
-  },
-  {
-    id: uuid(),
-    name: 'UserName',
-    nickname: '@username',
-    date: '24 sales on 32ETH',
-    photo: images.photo4,
-    follow: true
-  },
-  {
-    id: uuid(),
-    name: 'UserName',
-    nickname: '@username',
-    date: '24 sales on 32ETH',
-    photo: images.photo5,
-    follow: false
-  },
-  {
-    id: uuid(),
-    name: 'UserName',
-    nickname: '@username',
-    date: '24 sales on 32ETH',
-    photo: images.photo3,
-    follow: true
-  },
-  {
-    id: uuid(),
-    name: 'UserName',
-    nickname: '@username',
-    date: '24 sales on 32ETH',
-    photo: images.photo4,
     follow: true
   },
   ]);
@@ -428,14 +410,70 @@ export function App() {
         description: 'Description',
         type: 'Type',
         copies: 'Copies',
-        
-
       }
+    },
+    videos: {
+      title: 'Connecting wallet',
+      video: [
+        {
+          id: 1,
+          src: 'https://www.youtube.com/embed/4ZO3PL-xyT8',
+          title: 'Описание что нужно сделать'
+        },
+        {
+          id: 2,
+          src: 'https://www.youtube.com/embed/E4q9feAxpME',
+          title: 'Описание что нужно сделать'
+        },
+        {
+          id: 3,
+          src: 'https://www.youtube.com/embed/FHZE5r73ykQ',
+          title: 'Описание что нужно сделать'
+        }]
+      // 1: {
+      //   html: '<iframe src="https://www.youtube.com/embed/4ZO3PL-xyT8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+      // },
+      // 2: {
+      //   html: '<iframe src="https://www.youtube.com/embed/E4q9feAxpME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+      // },
+      // 3: {
+      //   html: '<iframe src="https://www.youtube.com/embed/FHZE5r73ykQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+      // },
+    },
+    connect: {
+      title: 'Connecting wallet',
+      loadIcon: images.loading,
+      fox: images.fox
     }
   });
-
+  let [isEntered, setEnter] = useState(false);
   let [creatingPopup, setCreatingPopup] = useState(false);
 
+  let [videosPopup, setVideosPopup] = useState(false);
+
+  let [connectPopup, setConnectPopup] = useState(false);
+  let [slides, setSlides] = useState([
+    {
+      title: 'First Slide',
+      img: images.slide1,
+    },
+    {
+      title: 'Second Slide',
+      img: images.slide2,
+    },
+    {
+      title: 'Fourth Slide',
+      img: images.slide4,
+    },
+    {
+      title: 'Third Slide',
+      img: images.slide3,
+    },
+    {
+      title: 'First Slide',
+      img: images.slide1,
+    },
+  ])
 
   return (
     <div className="wrapper">
@@ -444,6 +482,10 @@ export function App() {
         userInfo={userInfo}
         creatingPopup={creatingPopup}
         setCreatingPopup={setCreatingPopup}
+        activeVideo={videosPopup}
+        changeActiveVideo={setVideosPopup}
+        isEntered={isEntered}
+        setEnter={setEnter}
       />
       <Routes>
         <Route path="/" element={
@@ -452,6 +494,7 @@ export function App() {
             userInfo={userInfo}
             userCardInfo={userCardInfo}
             cardsList={cardsList}
+            slides={slides}
           />}
         />
         <Route path="/artwork" element={
@@ -490,6 +533,24 @@ export function App() {
         isActive={creatingPopup}
         setCreatingPopup={setCreatingPopup}
       />
+      <PopupVideos
+        data={popupData.videos}
+        isActive={videosPopup}
+        changeActive={setVideosPopup}
+        closeIcon={images.closeIcon}
+        connectActive={connectPopup}
+        setConnectActive={setConnectPopup}
+        isEntered={isEntered}
+        setEnter={setEnter}
+      />
+
+      <PopupConnect
+        data={popupData.connect}
+        closeIcon={images.closeIcon}
+        isActive={connectPopup}
+        changeActive={setConnectPopup}
+      />
+
     </div>
   );
 }
