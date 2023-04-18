@@ -7,11 +7,12 @@ export function UserMenu(props) {
 	return (
 		<div className={s.user}>
 			<HeaderBtn title="+ Add artwork"
-				onClickHandler={props.onClickHandler}
+				onClickHandler={props.onClickCreatingHandler}
 			/>
 			<UserMenuInfo
 				images={props.images}
 				userInfo={props.userInfo}
+				onClickLogOutHandler={props.onClickHandler}
 			/>
 
 		</div>

@@ -12,6 +12,7 @@ export function Main(props) {
 			<Hero
 				images={props.images}
 				userInfo={props.userInfo}
+				slides={props.slides}
 			/>
 			<div className={s.selects}>
 				<Select title="Recently added"

@@ -1,14 +1,31 @@
 import React from "react";
-import s from './HeroSlider.module.css';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import './HeroSlider.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards, Pagination } from "swiper";
+import "swiper/css/effect-cards";
 
 export function HeroSlider(props) {
-	return (
-		<div>
-			
-		</div>
-	);
+
+	let listSlides = props.slides.map((elem, index) => (
+		<SwiperSlide key={index}>
+			<img src={elem.img} alt={elem.title} loading="lazy" />
+		</SwiperSlide>
+	))
+
+	return (<>
+		<Swiper
+			effect={"cards"}
+			cardsEffect={{
+				rotate: false,
+				perSlideOffset: 29,
+			}}
+			pagination={{
+				clickable: true
+			}}
+			modules={[EffectCards, Pagination]}
+			className="hero-slider"
+		>
+			{listSlides}
+		</Swiper>
+	</>);
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
+import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -21,12 +21,13 @@ export const UsersSlider = (props) => {
 	return (
 		<div className="user-slider">
 			<Swiper
-				slidesPerView={5.2}
+				slidesPerView={5.1}
 				spaceBetween={16}
 				pagination={{
 					type: "progressbar",
 				}}
 				modules={[Pagination]}
+				className="users-slider"
 			>
 				{slides}
 			</Swiper>

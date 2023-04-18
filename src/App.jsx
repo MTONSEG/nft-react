@@ -20,11 +20,23 @@ import photo2 from './assets/images/photo_2.jpg';
 import photo3 from './assets/images/photo_3.jpg';
 import photo4 from './assets/images/photo_4.jpg';
 import photo5 from './assets/images/photo_5.jpg';
+import slide1 from './assets/images/slide_img-1.jpg';
+import slide2 from './assets/images/slide_img-2.jpg';
+import slide3 from './assets/images/slide_img-3.jpg';
+import slide4 from './assets/images/slide_img-4.jpg';
+import fox from './assets/images/fox.jpg';
+import photoProfile from './assets/images/profile_photo.jpg';
+import creatingImg from './assets/images/creating_img.jpg';
 import iconSold2 from './assets/icons/sold.svg';
 import iconSold1 from './assets/icons/sold2.svg';
 import selectIcon from './assets/icons/selectArrow.svg';
 import menuArrow from './assets/icons/menuArr.svg';
 import closeIcon from './assets/icons/close.svg';
+import delIcon from './assets/icons/del.svg';
+import picIcon from './assets/icons/pic.svg';
+import stickIcon from './assets/icons/stick.svg';
+import blurIcon from './assets/icons/blur.svg';
+import loading from './assets/icons/loading.svg';
 //Header Assets
 import logo from './assets/icons/logo.svg';
 import searchIcon from './assets/icons/search.svg';
@@ -41,6 +53,9 @@ import twitchIcon from './assets/icons/twitch.svg';
 import instagramIcon from './assets/icons/instagram.svg';
 import twitterIcon from './assets/icons/twitter.svg';
 import onlyfansIcon from './assets/icons/onlyfans.svg';
+import { PopupCreatingArtwork } from "./components/Artwork/PopupCreatingArtwork/PopupCreatingArtwork";
+import { PopupVideos } from "./components/UI/Header/UserMenu/PopupVideos/PopupVideos";
+import { PopupConnect } from "./components/UI/Header/UserMenu/PopupConnect/PopupConnect";
 
 export function App() {
 
@@ -60,14 +75,26 @@ export function App() {
     photo3: photo3,
     photo4: photo4,
     photo5: photo5,
+    slide1: slide1,
+    slide2: slide2,
+    slide3: slide3,
+    slide4: slide4,
+    fox: fox,
+    loading: loading,
+    creatingImg: creatingImg,
+    picIcon: picIcon,
+    stickIcon: stickIcon,
+    blurIcon: blurIcon,
     icon1: iconSold1,
     icon2: iconSold2,
+    photoProfile: photoProfile,
     optionIcon: optionIcon,
     shareIcon: shareIcon,
     otherIcon: otherIcon,
     selectIcon: selectIcon,
     menuArrow: menuArrow,
     closeIcon: closeIcon,
+    delIcon: delIcon,
     artworkHero: artworkHero,
     photoArtwork: photoArtwork,
     twitchIcon: twitchIcon,
@@ -179,7 +206,7 @@ export function App() {
   });
   let [userCardInfo, setUserCardInfo] = useState([{
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo1,
@@ -187,7 +214,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo2,
@@ -195,7 +222,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo3,
@@ -203,7 +230,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo4,
@@ -211,7 +238,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo5,
@@ -219,7 +246,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo3,
@@ -227,7 +254,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo4,
@@ -235,7 +262,7 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo2,
@@ -243,42 +270,10 @@ export function App() {
   },
   {
     id: uuid(),
-    name: 'UserName',
+    name: 'User Name',
     nickname: '@username',
     date: '24 sales on 32ETH',
     photo: images.photo3,
-    follow: true
-  },
-  {
-    id: uuid(),
-    name: 'UserName',
-    nickname: '@username',
-    date: '24 sales on 32ETH',
-    photo: images.photo4,
-    follow: true
-  },
-  {
-    id: uuid(),
-    name: 'UserName',
-    nickname: '@username',
-    date: '24 sales on 32ETH',
-    photo: images.photo5,
-    follow: false
-  },
-  {
-    id: uuid(),
-    name: 'UserName',
-    nickname: '@username',
-    date: '24 sales on 32ETH',
-    photo: images.photo3,
-    follow: true
-  },
-  {
-    id: uuid(),
-    name: 'UserName',
-    nickname: '@username',
-    date: '24 sales on 32ETH',
-    photo: images.photo4,
     follow: true
   },
   ]);
@@ -356,28 +351,141 @@ export function App() {
       titleInput: 'Selling will end',
       textInput: '05h 02m 41s',
     },
+    editingProfile: {
+      title: 'Edit your Profile',
+      name: 'Name',
+      username: 'Username',
+      email: 'Email',
+      textarea: 'BIO',
+      imageTitle: 'Profile image',
+      contacts: {
+        title: 'Contacts',
+        items: [{
+          title: 'Twitch',
+          icon: images.twitchIcon
+        },
+        {
+          title: 'Instagram',
+          icon: images.instagramIcon
+        },
+        {
+          title: 'Twitter',
+          icon: images.twitterIcon
+        },
+        {
+          title: 'Onlyfans',
+          icon: images.onlyfansIcon
+        }]
+      },
+      image: {
+        file: images.photoProfile,
+        filename: 'file.name',
+        size: '5.00 mb',
+        delIcon: images.delIcon,
+      },
+      description: 'Add your email address to receive notifications about your activity on Foundation. This will not be shown on your profile.',
+    },
     creating: {
       title: 'Creating artwork',
       step1: {
+        num: 'Step 1 from 3',
         uploadTitle: 'Upload the artwork you will be selling',
+        sizeFile: '1500x500px. JPG, PNG or GIF. 100MB max size.',
+        text: 'Drag and drop an image here, or click to browse',
         error: 'Your artwork wasn’t approved. Cause is: Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
       },
       step2: {
+        num: 'Step 2 from 3',
+        image: images.creatingImg,
+        icons: {
+          pic: images.picIcon,
+          stick: images.stickIcon,
+          blur: images.blurIcon
+        },
         uploadTitle: 'Censor the public version of artwork, if it contains 18+ content',
       },
       step3: {
-        inpTitle: 'Artwork name',
-
+        num: 'Step 3 from 3',
+        name: 'Artwork name',
+        description: 'Description',
+        type: 'Type',
+        copies: 'Copies',
       }
+    },
+    videos: {
+      title: 'Connecting wallet',
+      video: [
+        {
+          id: 1,
+          src: 'https://www.youtube.com/embed/4ZO3PL-xyT8',
+          title: 'Описание что нужно сделать'
+        },
+        {
+          id: 2,
+          src: 'https://www.youtube.com/embed/E4q9feAxpME',
+          title: 'Описание что нужно сделать'
+        },
+        {
+          id: 3,
+          src: 'https://www.youtube.com/embed/FHZE5r73ykQ',
+          title: 'Описание что нужно сделать'
+        }]
+      // 1: {
+      //   html: '<iframe src="https://www.youtube.com/embed/4ZO3PL-xyT8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+      // },
+      // 2: {
+      //   html: '<iframe src="https://www.youtube.com/embed/E4q9feAxpME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+      // },
+      // 3: {
+      //   html: '<iframe src="https://www.youtube.com/embed/FHZE5r73ykQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+      // },
+    },
+    connect: {
+      title: 'Connecting wallet',
+      loadIcon: images.loading,
+      fox: images.fox
     }
   });
+  let [isEntered, setEnter] = useState(false);
+  let [creatingPopup, setCreatingPopup] = useState(false);
 
+  let [videosPopup, setVideosPopup] = useState(false);
+
+  let [connectPopup, setConnectPopup] = useState(false);
+  let [slides, setSlides] = useState([
+    {
+      title: 'First Slide',
+      img: images.slide1,
+    },
+    {
+      title: 'Second Slide',
+      img: images.slide2,
+    },
+    {
+      title: 'Fourth Slide',
+      img: images.slide4,
+    },
+    {
+      title: 'Third Slide',
+      img: images.slide3,
+    },
+    {
+      title: 'First Slide',
+      img: images.slide1,
+    },
+  ])
 
   return (
     <div className="wrapper">
       <Header
         images={images}
         userInfo={userInfo}
+        creatingPopup={creatingPopup}
+        setCreatingPopup={setCreatingPopup}
+        activeVideo={videosPopup}
+        changeActiveVideo={setVideosPopup}
+        isEntered={isEntered}
+        setEnter={setEnter}
       />
       <Routes>
         <Route path="/" element={
@@ -386,6 +494,7 @@ export function App() {
             userInfo={userInfo}
             userCardInfo={userCardInfo}
             cardsList={cardsList}
+            slides={slides}
           />}
         />
         <Route path="/artwork" element={
@@ -395,6 +504,7 @@ export function App() {
             bidInfo={bidInfo}
             activity={activity}
             cardsList={cardsList}
+            popupData={popupData.bid}
           />}
         />
         <Route path="/profile" element={
@@ -403,7 +513,7 @@ export function App() {
             userInfo={userInfo}
             followers={followers}
             cardsList={cardsList}
-            popupData={popupData}
+            popupData={popupData.editingProfile}
             userCardInfo={userCardInfo}
             setUserCardInfo={setUserCardInfo}
           />}
@@ -416,6 +526,31 @@ export function App() {
           />}
         />
       </Routes>
+
+      <PopupCreatingArtwork
+        data={popupData.creating}
+        closeIcon={images.closeIcon}
+        isActive={creatingPopup}
+        setCreatingPopup={setCreatingPopup}
+      />
+      <PopupVideos
+        data={popupData.videos}
+        isActive={videosPopup}
+        changeActive={setVideosPopup}
+        closeIcon={images.closeIcon}
+        connectActive={connectPopup}
+        setConnectActive={setConnectPopup}
+        isEntered={isEntered}
+        setEnter={setEnter}
+      />
+
+      <PopupConnect
+        data={popupData.connect}
+        closeIcon={images.closeIcon}
+        isActive={connectPopup}
+        changeActive={setConnectPopup}
+      />
+
     </div>
   );
 }

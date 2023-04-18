@@ -7,14 +7,21 @@ import { BigBtn } from "../UI/Buttons/UserButtons/BigBtn/BigBtn";
 import { SmallBtn } from "../UI/Buttons/UserButtons/SmallBtn/SmallBtn";
 import { ListCard } from "../Main/ListCard/ListCard";
 import { PopupFollowers } from "./PopupFollowers/PopupFollowers";
+import { PopupEditProfile } from "./PopupEditProfile/PopupEditProfile";
 
 export function Profile(props) {
 	let images = props.images;
 
 	let [showFollowers, setShowFollower] = useState(false);
 
-	const onClickHandler = () => {
+	let [showEditing, setShowEdition] = useState(false);
+
+	const onClickFollowerHandler = () => {
 		setShowFollower(!showFollowers);
+	}
+
+	const onClickEditProfileHandler = () => {
+		setShowEdition(!showEditing);
 	}
 
 	return (
@@ -36,12 +43,14 @@ export function Profile(props) {
 							<span className={s.followTitle}>Following</span>
 						</div>
 
-						<BigBtn title="Follow" onClickHandler={onClickHandler} />
+						<BigBtn title="Follow" onClickHandler={onClickFollowerHandler} />
 
 						<div className={s.smallBtns}>
 							<SmallBtn icon={images.optionIcon} alt="Option" />
 							<SmallBtn icon={images.shareIcon} alt="Share" />
-							<SmallBtn icon={images.otherIcon} alt="Others" />
+							<SmallBtn icon={images.otherIcon} alt="Others"
+								onClickHandler={onClickEditProfileHandler}
+							/>
 						</div>
 					</div>
 				</div>
@@ -75,11 +84,16 @@ export function Profile(props) {
 
 			<PopupFollowers closeIcon={images.closeIcon}
 				isActive={showFollowers}
-				onClickHandler={onClickHandler}
+				onClickHandler={onClickFollowerHandler}
 				userCardInfo={props.userCardInfo}
 				setUserCardInfo={props.setUserCardInfo}
 			/>
 
+			<PopupEditProfile closeIcon={images.closeIcon}
+				isActive={showEditing}
+				onClickHandler={onClickEditProfileHandler}
+				data={props.popupData}
+			/>
 		</div>
 	);
 }

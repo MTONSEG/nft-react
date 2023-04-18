@@ -14,7 +14,7 @@ export function PopupFollowers(props) {
 		userCardInfo={props.userCardInfo}
 		setUserCardInfo={props.setUserCardInfo}
 	/>);
-	let followers = '';
+	// let followers = '';
 
 	return (
 		<div className={
